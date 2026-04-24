@@ -25,6 +25,7 @@ const fontFamilies = tokens.typography.fontFamilies as Record<string, string>
 const fontWeights = tokens.typography.fontWeights as Record<string, number>
 
 const variantOptions = Object.keys(textStyles)
+const defaultVariant = variantOptions[0]
 
 const BREAKPOINTS = {
     desktop: "(min-width: 1200px)",
@@ -74,7 +75,7 @@ type Props = {
 }
 
 export default function Text({
-    variant = "bodyL",
+    variant = defaultVariant,
     as = "p",
     text = "The quick brown fox jumps over the lazy dog",
     color = "#111",
@@ -109,7 +110,7 @@ addPropertyControls(Text, {
         type: ControlType.Enum,
         title: "Variant",
         options: variantOptions,
-        defaultValue: "bodyL",
+        defaultValue: defaultVariant,
     },
     as: {
         type: ControlType.Enum,
